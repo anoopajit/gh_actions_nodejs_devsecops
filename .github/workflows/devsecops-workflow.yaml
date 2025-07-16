@@ -26,7 +26,7 @@ jobs:
     needs: build
     name: Run the SCA scan on the source code
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v4 # Changed from @master to @v4
       - name: RunSnyk to check for vulnerabilities
         uses: snyk/actions/node@master
         continue-on-error: true
@@ -40,7 +40,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          ref: master
+          ref: main # Changed from master to main
       - name: ZAP Scan
         uses: zaproxy/action-baseline@v0.14.0
         with:
